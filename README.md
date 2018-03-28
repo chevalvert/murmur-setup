@@ -65,7 +65,7 @@ Pour rendre possible la communication entre l'ordinateur et la Raspberry il faut
 
 ## 4 - Lancer Murmur en mode installation
 - Ouvrir le fichier `yourmurmurappfolder/data/configuration.xml` avec TextEdit et désactiver le mode simulation en écrivant 0 dans `<enable>0</enable>`
-- Lancer le programme murmur `yourmurmurappfolder/murmur` le stripLED et les projections doivent réagir à la voix (dans le simulateur et dans l'installation). Sinon vérifier que dans l'onglet Configuration la fonction `Launch murmur@rasp` est bien cochée.
+- Lancer le programme murmur `yourmurmurappfolder/murmur`. Le stripLED et les projections doivent réagir à la voix (dans le simulateur et dans l'installation). Sinon vérifier que dans l'onglet Configuration la fonction `Launch murmur@rasp` est bien cochée.
 
 ## License
 [MIT.](https://tldrlegal.com/license/mit-license)
