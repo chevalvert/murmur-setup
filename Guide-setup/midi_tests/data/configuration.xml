@@ -1,0 +1,5 @@
+<configuration>
+	<midi>
+		<port>0</port>
+	</midi>
+</configuration>

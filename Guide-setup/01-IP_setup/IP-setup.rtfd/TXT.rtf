@@ -1,0 +1,140 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+{\fonttbl\f0\fmodern\fcharset0 Courier-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fmodern\fcharset0 Courier;
+\f3\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red221\green32\blue103;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww22000\viewh14520\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b\fs36 \cf0 Communication between the computer and the Raspberry : IP setup 
+\f1\b0\fs24 \
+\
+\pard\pardeftab720
+
+\f2 \cf0 \
+\
+
+\f0\b\fs36 1 / Check out for the raspberry and the computer's IP\
+
+\f2\b0\fs24 \
+Turn off you wifi.\
+Connect the computer and the Raspberry Pi to the rooter, turn it on. \
+Check if ethernet is connected (in mode "using DHCP")\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.36.09.png \width15640 \height13880
+}¬}
+\f2 \
+\pard\pardeftab720
+\cf0  \
+\
+Open IP Scanner and check the IP of the computer (local host) and the Raspberry Pi's IP.\
+Note the IP of the computer : in our example 192.168.1.2\
+Note the the IP of the raspberry : 192.168.1.52\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.37.09.png \width15880 \height12680
+}¬}
+\f0\b\fs36 \
+\pard\pardeftab720
+
+\f2\b0\fs24 \cf2 \
+\pard\pardeftab720
+\cf0 \
+\
+\
+
+\f0\b\fs36 2 / Point the IP address of the devices in the configuration.xml document\
+
+\f2\b0\fs24 \
+\pard\pardeftab720
+
+\f0\b \cf0 2.1 / In the computer :\
+\pard\pardeftab720
+
+\f2\b0 \cf0 \
+Go to yourmurmurfolder/data/configuration.xml and open it with TextEdit\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.39.41.png \width15340 \height9180
+}¬}
+\f2 \
+\pard\pardeftab720
+\cf0 \
+Edit this document putting the IP of your raspberry :\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.40.18.png \width15380 \height14000
+}¬}
+\f2 \
+\pard\pardeftab720
+\cf0 \
+Save and quit\
+\
+\
+\pard\pardeftab720
+
+\f0\b \cf0 2.3 / In the raspberry : \
+\pard\pardeftab720
+
+\f2\b0 \cf0 \
+Connect you to the raspberry through Cyberduck :\
+Server : raspberry's IP\
+username : pi\
+password : raspberry\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.41.45.png \width12040 \height10580
+}¬}
+\f2 \
+\pard\pardeftab720
+\cf0 \
+go to pi/Dev/C/openFrameworks/examples/myapps/murmurRaspberry/bin/data/configuration.xml
+\f3 \
+\pard\pardeftab720\sl340
+
+\f2 \cf0 Right click + open configuration.xml with TextEdit\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.42.42.png \width12040 \height10600
+}¬}
+\f2 \
+
+\f3 \
+\pard\pardeftab720\sl340
+
+\f2 \cf0 Put the IP of you computer (local host)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.43.10.png \width15380 \height10820
+}¬}
+\f2 \
+\pard\pardeftab720\sl340
+\cf0 Save and quit.\
+\
+Disconnect cyberduck, quit cyberduck.\
+\pard\pardeftab720
+\cf0 \
+\
+Both the raspberry and the computer know the IP of each other, they can from now on communicate.\
+\
+\
+\
+
+\f0\b\fs36 3 / Run Murmur App in installation mode\
+
+\f2\b0\fs24 \
+\
+First disable simulation mode by choosing 0 in <enable>0</enable> within configuration.xml :\
+yourmurmurfolder/data/configuration.xml\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.46.09.png \width15380 \height10820
+}¬}
+\f2 \
+\pard\pardeftab720
+\cf0 \
+Then run murmur, the strip led of the installation and the projection should now react to your voice both in the 3D scene and in the installation.
+\f1 {{\NeXTGraphic Screen Shot 2014-10-08 at 11.48.05.png \width22760 \height15740
+}¬}}

@@ -1,0 +1,114 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b\fs24 \cf0 1 - Clone SD card\
+\
+\pard\pardeftab720\sa240
+
+\f1\b0 \cf0 \expnd0\expndtw0\kerning0
+Insert the SD Card into a card reader on your Mac. \'a0Open Terminal and enter the following command to locate your SD Card:\
+\pard\pardeftab720
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+diskutil list\
+
+\f1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sa240
+\cf0 \expnd0\expndtw0\kerning0
+All your disks will be listed, and will look something like below:\
+\pard\pardeftab720\sa240\qc
+\cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sa240
+\cf0 \expnd0\expndtw0\kerning0
+Look for your SD card by looking for a disk of the right size and name. In the above\'a0example, the SD Card is /dev/disk1.\
+Next, in Terminal, enter the following command to create a disc image (.dmg) of your SD Card in your home directory.\
+\pard\pardeftab720
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+sudo dd if=/dev/disk1 of=~/SDCardBackup.dmg
+\f1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sa240
+\cf0 \expnd0\expndtw0\kerning0
+Wait until the SD card has been completely read; the command does not show any feedback, so wait for the command prompt to reappear in the terminal window once it is complete.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b \cf0 \kerning1\expnd0\expndtw0 2 - Install dmg image on SD card\
+\pard\pardeftab720\sa240
+
+\f1\b0 \cf0 \expnd0\expndtw0\kerning0
+\
+Again, if you corrupt your SD card or need to make a copy at any time, you can restore it\'a0by following the same\'a0approach as above to locate your SD card. \'a0Before you can write to the card you have to 'unmount' it\'a0so that the operating system does not try to write to it at the same time. \'a0Use the following in the Terminal:\
+\
+\pard\pardeftab720\sa240
+\cf0 \expnd0\expndtw0\kerning0
+Insert the SD Card into a card reader on your Mac. \'a0Open Terminal and enter the following command to locate your SD Card:\
+\pard\pardeftab720
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+diskutil list\
+\
+\
+\pard\pardeftab720\sa240
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+Check the name of the SD disk and unmount it\expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+diskutil unmountDisk /dev/disk1\
+\
+
+\f1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sa240
+\cf0 \expnd0\expndtw0\kerning0
+Then use the\'a0this to write the image back to the SD card:\
+\
+If the .dmg file is in the desktops\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f3\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 sudo dd bs=1m if=/Users/chevalvert/Desktop/170403-murmur-etopia-adaptation.dmg of=/dev/disk2\
+\
+Wait the process can be long.\
+\pard\pardeftab720\sa240
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 Pour v\'e9rifier que des donn\'e9es sont en train d\'92\'eatre grav\'e9es sur la SD utiliser la commande
+\f2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+\cf0 \expnd0\expndtw0\kerning0
+ ctrl + T
+\f3\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+
+\f1\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+sudo dd if=~/SDCardBackup.dmg\'a0of=/dev/disk1
+\f1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sa240
+\cf0 \expnd0\expndtw0\kerning0
+Once it has finished writing the image to the SD card, you can remove it from your Mac using:\
+\pard\pardeftab720
+
+\f2 \cf0 \expnd0\expndtw0\kerning0
+sudo diskutil eject /dev/rdisk3\
+\
+\
+
+\f1 \expnd0\expndtw0\kerning0
+\
+}

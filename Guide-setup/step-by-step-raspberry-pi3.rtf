@@ -1,0 +1,323 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fswiss\fcharset0 ArialMT;\f4\froman\fcharset0 Times-Roman;\f5\fmodern\fcharset0 Courier;
+\f6\fmodern\fcharset0 Courier-Bold;\f7\fnil\fcharset0 Menlo-Bold;\f8\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red16\green60\blue192;\red32\green35\blue35;\red0\green0\blue0;
+\red120\green120\blue120;\red245\green245\blue247;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid2\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid3\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17780\viewh13340\viewkind0
+\deftab720
+\pard\pardeftab720\sa280
+
+\f0\b\fs24 \cf0 \expnd0\expndtw0\kerning0
+INSTALLATION RASPBIAN\
+1 - Copy .img to SD card using command line tools\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440
+\ls1\ilvl1
+\b0 \cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}
+\f2 \expnd0\expndtw0\kerning0
+diskutil list
+\f0 \
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160
+\ls1\ilvl2\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+identify the disk (not partition) of your SD card. e.g. disk4 (not disk4s1)\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440
+\ls1\ilvl1\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}
+\f2 \expnd0\expndtw0\kerning0
+diskutil unmountDisk /dev/<disk# from diskutil>
+\f0 \
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160
+\ls1\ilvl2\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+e.g. 
+\f2 \expnd0\expndtw0\kerning0
+diskutil unmountDisk /dev/disk2
+\f0 \expnd0\expndtw0\kerning0
+\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440
+\ls1\ilvl1\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9702 
+\f0 	}
+\f2 \expnd0\expndtw0\kerning0
+sudo dd bs=1m if=<your image file>.img of=/dev/<disk# from diskutil>
+\f0 \
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160
+\ls1\ilvl2\cf0 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+e.g. 
+\f2 \expnd0\expndtw0\kerning0
+sudo dd bs=1m if=\kerning1\expnd0\expndtw0 \CocoaLigature0 /Users/chevalvert/Desktop/2017-01-11-raspbian-jessie-lite.img\expnd0\expndtw0\kerning0
+\CocoaLigature1  of=/dev/disk2
+\f0 \expnd0\expndtw0\kerning0
+\
+\ls1\ilvl2\kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}\expnd0\expndtw0\kerning0
+(This will take a few minutes)\
+\pard\pardeftab720
+\cf0 \expnd0\expndtw0\kerning0
+\
+\
+\
+ \
+\pard\pardeftab720\sa280
+
+\b \cf0 \expnd0\expndtw0\kerning0
+2 - Allumer la raspberry\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160
+
+\b0 \cf0 \expnd0\expndtw0\kerning0
+Login pi\
+password raspberry\
+\
+\
+\pard\pardeftab720\sl340
+
+\f3\b \cf0 \expnd0\expndtw0\kerning0
+3 - Activer le SSH
+\b0 \expnd0\expndtw0\kerning0
+ \
+
+\f4 \expnd0\expndtw0\kerning0
+\
+
+\f2 sudo raspi-config\
+7 Advanced options > enable SSH > Yes\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160
+
+\f0\b \cf0 \expnd0\expndtw0\kerning0
+\
+\
+\pard\pardeftab720\sl340
+
+\f3 \cf0 \expnd0\expndtw0\kerning0
+4 - Activer le wifi\
+\pard\pardeftab720\sl340
+{\field{\*\fldinst{HYPERLINK "https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md"}}{\fldrslt 
+\b0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md}}
+\f4\b0 \expnd0\expndtw0\kerning0
+\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160
+
+\f0\b \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sa321
+\cf0 \expnd0\expndtw0\kerning0
+Finding Your Pi's IP Address\
+\pard\pardeftab720\sa280
+
+\f2\b0 \cf0 \expnd0\expndtw0\kerning0
+sudo ifconfig\
+\pard\pardeftab720
+
+\f0 \cf0 \expnd0\expndtw0\kerning0
+Next to the 
+\b \expnd0\expndtw0\kerning0
+wlan0
+\b0 \expnd0\expndtw0\kerning0
+ entry you will see inet addr: 
+\b \expnd0\expndtw0\kerning0
+192.168.1.10
+\b0 \expnd0\expndtw0\kerning0
+ which is the IP address of the Raspberry Pi.\
+\
+\
+\pard\pardeftab720\sl340
+
+\f3\b\fs30 \cf0 \expnd0\expndtw0\kerning0
+5 - Activer le SPI
+\b0 \expnd0\expndtw0\kerning0
+ (pour pilotage des LEDs)
+\f4\fs24 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl340
+{\field{\*\fldinst{HYPERLINK "https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md"}}{\fldrslt 
+\f3\fs30 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md}}\
+\pard\pardeftab720\sl340
+
+\f3\fs30 \cf0 \expnd0\expndtw0\kerning0
+sudo raspi-config
+\f4\fs24 \expnd0\expndtw0\kerning0
+\
+
+\f3\fs30 \expnd0\expndtw0\kerning0
+7 Advanced options > A6 SPI > Yes
+\f4\fs24 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\f3\fs30 \cf0 \expnd0\expndtw0\kerning0
+Puis sudo reboot\
+\
+\pard\pardeftab720\sl340
+\cf0 \expnd0\expndtw0\kerning0
+Commande pour lister les interfaces spi : ls /dev/*spi* \'a0
+\f4\fs24 \expnd0\expndtw0\kerning0
+\
+
+\f3\fs30 \expnd0\expndtw0\kerning0
+Doit normalement afficher quelquechose comme /dev/spi0.0 /dev/spi0.1
+\f4\fs24 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\f3\fs30 \cf0 \expnd0\expndtw0\kerning0
+Lien int\'e9ressant : {\field{\*\fldinst{HYPERLINK "https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial"}}{\fldrslt \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial}}\
+\
+\pard\pardeftab720
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl340
+
+\f3\b\fs30 \cf0 \expnd0\expndtw0\kerning0
+6 - Installer SSH key du computer sur la raspberry pour se connecter sans mot de passe
+\f4\b0\fs24 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl340
+{\field{\*\fldinst{HYPERLINK "https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md"}}{\fldrslt 
+\f3\fs30 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md}}\
+\pard\pardeftab720
+
+\f0 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+mac book pro julia\
+192.168.1.41\
+\
+raspberry pi \
+\pard\pardeftab720
+
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 192.168.1.58\
+192.168.1.2\
+\
+\pard\pardeftab720
+
+\f0\fs24 \cf0 \CocoaLigature1 cd ~/Dev/C/openFrameworks/examples/myapps/\
+murmurRaspberry/\expnd0\expndtw0\kerning0
+\
+\
+\
+\pard\pardeftab720
+
+\b \cf0 \expnd0\expndtw0\kerning0
+7 - Set language to US\
+\pard\pardeftab720
+
+\b0 \cf0 \expnd0\expndtw0\kerning0
+\
+Option 1 pour activer locale\
+\
+1 - activer locale US\
+\pard\pardeftab720
+
+\f4 \cf0 \expnd0\expndtw0\kerning0
+sudo nano /etc/locale.gen and uncomment the line "en_US.UTF-8 UTF-8" and any others you need.\
+\
+2 - generer les locale US\
+\pard\pardeftab720
+
+\f5 \cf0 \expnd0\expndtw0\kerning0
+pi@raspberry ~ $ sudo locale-gen\
+Generating locales (this might take a while)...\
+\'a0 en_US.UTF-8... done\
+Generation complete.\
+\
+
+\f6\b Option 2 pour activer locale (la meilleure)\
+\pard\pardeftab720
+
+\f4\b0 \cf0 \expnd0\expndtw0\kerning0
+\
+sudo raspi-config\
+4 Localisation Options\
+Change locale\
+choisir 
+\f2\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 en_US.UTF-8 avec la barre espace\
+sauvegarder		 				
+\f4\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720
+
+\f5 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+
+\f6\b Pour finir set LC_ALL \'e0 en_US.UTF-8 avc la commande export \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f2\b0\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 export LC_ALL="en_US.UTF-8"
+\f5\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720
+\cf0 \expnd0\expndtw0\kerning0
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 echo $LC_ALL pour voir le setup\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f7\b \cf0 Set LC_ALL pour toujours\
+\
+\pard\pardeftab720
+
+\f5\b0\fs30 \cf3 \expnd0\expndtw0\kerning0
+\CocoaLigature1 sudo nano /etc/default/locale\
+\pard\pardeftab720
+
+\f4\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+et rajouter :\'a0\
+\
+LC_ALL=en_US.UTF-8\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f5 \cf0 \expnd0\expndtw0\kerning0
+\
+reboot\
+
+\f2\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 echo $LC_ALL pour voir s\'92il est pris en compte pour toujours\
+\
+
+\f6\b\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 option 2 
+\f7\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 Set LC_ALL pour toujours
+\f6\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720
+
+\f4\b0 \cf4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 update-locale LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"\
+
+\f5 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+\pard\pardeftab720
+
+\f4 \cf0 \expnd0\expndtw0\kerning0
+\
+8 - D\'e9sactiver le wifi avant de lancer l\'92app murmur\
+\pard\pardeftab720
+
+\f8 \cf5 \cb6 \expnd0\expndtw0\kerning0
+sudo ifconfig wlan0 down
+\f4 \cf0 \cb1 \expnd0\expndtw0\kerning0
+\
+\
+\
+}
