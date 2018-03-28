@@ -1,8 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
 {\fonttbl\f0\fmodern\fcharset0 Courier-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fmodern\fcharset0 Courier;
 \f3\fmodern\fcharset0 Courier-Oblique;}
-{\colortbl;\red255\green255\blue255;\red221\green32\blue103;\red0\green61\blue204;\red0\green68\blue254;
-\red0\green45\blue153;}
+{\colortbl;\red255\green255\blue255;\red221\green32\blue103;\red0\green68\blue254;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww12860\viewh14500\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
@@ -18,15 +17,16 @@
 \pard\pardeftab720
 
 \f2\b0\fs24 \cf2 \
-\cf1 \cb3 ls ~/.ssh\
 \pard\pardeftab720
-\cf0 \cb1 \
+\cf1 \cb3 ls ~/.ssh\cf0 \cb1 \
+\
 If you see files named id_rsa.pub or id_dsa.pub you have keys already set up, so you can skip the generate new SSH keys step (or delete these files with rm id* and make new keys).\
 \
 \
 \
+\pard\pardeftab720
 
-\f0\b\fs36 2 / Generate new SSH keys\
+\f0\b\fs36 \cf0 2 / Generate new SSH keys\
 
 \f2\b0\fs24 \
 a / To generate new SSH keys enter the following command (choose a hostname such as <YOURNAME>@<YOURDEVICE> , we have used 
@@ -34,14 +34,13 @@ a / To generate new SSH keys enter the following command (choose a hostname such
 \f2\b0 ):\
 \
 \pard\pardeftab720
-\cf1 \cb3 ssh-keygen -t rsa -C murmur@pi\
-\pard\pardeftab720
-\cf0 \cb1 \
+\cf1 \cb3 ssh-keygen -t rsa -C murmur@pi\cf0 \cb1 \
+\
 b / You'll also be asked to enter a passphrase but it\'92s not necessary :\
 \pard\pardeftab720
 
 \f0\b \cf0 Don\'92t enter any password, just press 
-\f2\b0 \cf1 \cb4 Enter
+\f2\b0 \cf1 \cb3 Enter
 \f0\b \cf0 \cb1 \
 \pard\pardeftab720
 
@@ -49,19 +48,15 @@ b / You'll also be asked to enter a passphrase but it\'92s not necessary :\
 C / Now you should see the generated files id_rsa and id_rsa.pub, placed in your .ssh directory, in your desktop folder:\
 \
 \pard\pardeftab720
-\cf1 \cb3 ls ~/.ssh\
+\cf1 \cb3 ls ~/.ssh\cf0 \cb1 \
+\
+\cf1 \cb3 authorized_keys  id_rsa  id_rsa.pub  known_hosts\cf0 \cb1 \
+\
+\
+\
 \pard\pardeftab720
-\cf0 \cb1 \
-\pard\pardeftab720
-\cf1 \cb3 authorized_keys  id_rsa  id_rsa.pub  known_hosts\
-\pard\pardeftab720
-\cf0 \cb1 \
-\
-\
-\
-\
 
-\f0\b\fs36 3 / Copy your public key to your Raspberry Pi\
+\f0\b\fs36 \cf0 3 / Copy your public key to your Raspberry Pi\
 
 \f2\b0\fs24 \
 \pard\pardeftab720
@@ -79,22 +74,9 @@ C / Now you should see the generated files id_rsa and id_rsa.pub, placed in your
 To copy your public key to your Raspberry Pi, in the terminal use the following command to append the public key to your authorized_keys file on the Pi, sending it over SSH:\
 \
 \pard\pardeftab720
-\cf1 \cb5 \expnd0\expndtw0\kerning0
-cat ~/.ssh/id_rsa.pub | ssh \kerning1\expnd0\expndtw0 pi@192.168.1.3\expnd0\expndtw0\kerning0
- 'cat >> .ssh/authorized_keys'\
-cat ~/.ssh/id_rsa.pub | ssh \kerning1\expnd0\expndtw0 pi@\cf0 \cb1 192.168.1.126\cf1 \cb5 \expnd0\expndtw0\kerning0
- 'cat >> .ssh/authorized_keys'\
-cat ~/.ssh/id_rsa.pub | ssh \kerning1\expnd0\expndtw0 pi@
-\f1 \cf0 \cb1 \expnd0\expndtw0\kerning0
-192.168.1.137
-\f2 \cf1 \cb5 \expnd0\expndtw0\kerning0
- 'cat >> .ssh/authorized_keys'\
-cat ~/.ssh/id_rsa.pub | ssh \kerning1\expnd0\expndtw0 pi@\cf0 \cb1 192.168.1.114\cf1 \cb5 \expnd0\expndtw0\kerning0
- 'cat >> .ssh/authorized_keys'\
-cat ~/.ssh/id_rsa.pub | ssh \kerning1\expnd0\expndtw0 pi@\cf0 \cb1 192.168.1.5\cf1 \cb5 \expnd0\expndtw0\kerning0
- 'cat >> .ssh/authorized_keys'\
-\pard\pardeftab720
-\cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\cf1 \cb3 \expnd0\expndtw0\kerning0
+cat ~/.ssh/id_rsa.pub | ssh \cb3 \kerning1\expnd0\expndtw0 pi@192.168.1.3\cb3 \expnd0\expndtw0\kerning0
+ 'cat >> .ssh/authorized_keys'\cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 \
 \pard\pardeftab720
@@ -111,7 +93,7 @@ cat ~/.ssh/id_rsa.pub | ssh \kerning1\expnd0\expndtw0 pi@\cf0 \cb1 192.168.1.5\c
 \f0\b ssh
 \f2\b0  
 \f0\b pi@<IP-ADDRESS>
-\f2\b0  \cf1 \cb4 Enter\cb1  , \cf0 it should connect without asking you a password !!!\
+\f2\b0  \cf1 \cb3 Enter\cb1  , \cf0 it should connect without asking you a password !!!\
 \
 \
 }
