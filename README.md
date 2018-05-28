@@ -14,15 +14,15 @@ If you see files named named `d_rsa.pub` or `id_dsa.pub` you already have a key 
 
 - Generate new SSH key
 	- Write the command `ssh-keygen -t rsa -C <YOURNAME>@<YOURDEVICE>` for example `ssh-keygen -t rsa -C murmur@pi` 
-	- Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location `/home/pi/.ssh/id_rsa` by just hitting  `Enter
-	- You'll also be asked to enter a passphrase. Leave the field empty for no passphrase and hit `Enter`
+	- Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location `/home/pi/.ssh/id_rsa` by just hitting  `Enter`
+	- You'll also be asked to enter a passphrase. Leave the field empty for no passphrase and hit `Enter` two times
 
 - Check if the key has been created using the command `ls ~/.ssh`  	
 Now you should see the files `id_rsa` and `id_rsa.pub` in your .ssh directory in your home folder:
 
 >	```java
 >	ls ~/.ssh
->	authorized_keys  id_rsa  id_rsa.pub  known_hosts
+>	id_rsa  id_rsa.pub
 >	```
 
 ### 2 - Copy your public key to your Raspberry Pi
@@ -30,7 +30,14 @@ Now you should see the files `id_rsa` and `id_rsa.pub` in your .ssh directory in
 - Use the application [IP Scanner](https://itunes.apple.com/us/app/ip-scanner/id404167149?mt=12) and write down the IP address of the Raspberry
 - To copy your public key to your Raspberry Pi, use the following command `cat ~/.ssh/id_rsa.pub | ssh <YOURDEVICE>@<IP-ADDRESS> 'cat >> .ssh/authorized_keys'`  
 for example `cat ~/.ssh/id_rsa.pub | ssh pi@192.168.1.126 'cat >> .ssh/authorized_keys'`
+- Answer `yes` when the Terminas asks `The autehncity of host <IP-ADDRESS> can't be stablished ... Are you sure you want to continue?`
 - Authenticate with your password `raspberry`
+- Now, if you write the command `ls ~/.ssh` you should see the new file `known_hosts`
+
+>	```java
+>	ls ~/.ssh
+>	id_rsa  id_rsa.pub  `known_hosts`
+>	```
 
 ### 3 - Login into the Raspberry Pi using the SSH key
 Use the command `ssh pi@<IP-ADDRESS>` and hit `Enter` to login into the Raspberry.  
@@ -83,6 +90,19 @@ Once the installation of Murmur in the exhibition venue is finished and before t
 - Wait until the SD card has been completely read and copied to your computer. The command does not show any feedback, so wait for the command prompt to reappear in the terminal window once it is complete. The SD is a 32 GB, this process might take some hours to be completed. Meanwhile you can verify how much bytes have been transferred using the command `ctrl + T`
 
 
+## 5 - Autorun app script
+In order to let de video projector beeing detected by the computer, we have to wait about 20 seconds before running Murmur app. 
+
+To run Murmur app automatically after those 20 seconds we have to create an script-application. 
+
+> ```java
+> delay 20
+> launch application "/Users/Jack/Desktop/180528-Murmur/murmur.app"
+> ```
+
+With Script Editor (Applications > Utilities) create a script with this content
+then export it as an application and configure it to login automatically when the computer boots.
+![script-app.png](script-autorun/script-app.png)
 
 
 # Murmur - guide d'installation (FR)
@@ -101,7 +121,7 @@ S'il y a des fichiers nommés `d_rsa.pub` ou `id_dsa.pub` la clé existe déjà.
 - Générer une nouvelle clé SSH
 	- Écrire la commande `ssh-keygen -t rsa -C <YOURNAME>@<YOURDEVICE>` par exemple `ssh-keygen -t rsa -C murmur@pi` 
 	- Lors de la demande 'où sauvegarder la clé?' choisissez la proposition par défaut `/home/pi/.ssh/id_rsa` en tappant `Enter`
-	- N'écrivez pas de password, appuyez `Enter`
+	- N'écrivez pas de password, appuyez deux fois sur `Enter`
 
 - Vérifier que la clé a été créée avec la commande `ls ~/.ssh`  	
 S'il y a des fichiers nommés `d_rsa.pub` ou `id_dsa.pub` la clé a bien été créée :
@@ -115,7 +135,14 @@ S'il y a des fichiers nommés `d_rsa.pub` ou `id_dsa.pub` la clé a bien été c
 - Utiliser l'application [IP Scanner](https://itunes.apple.com/us/app/ip-scanner/id404167149?mt=12) et noter l'adresse IP de la Raspberry
 - Pour copier la clé sur la Raspberry utiliser la commande `cat ~/.ssh/id_rsa.pub | ssh <YOURDEVICE>@<IP-ADDRESS> 'cat >> .ssh/authorized_keys'`  
 par exemple `cat ~/.ssh/id_rsa.pub | ssh pi@192.168.1.126 'cat >> .ssh/authorized_keys'`
+- Répondre `yes` quand le Terminas demande `The autehncity of host <IP-ADDRESS> can't be stablished ... Are you sure you want to continue?`
 - Autentifier le login avec le password `raspberry`
+- Maintenant avec la commande `ls ~/.ssh` le fichier `known_hosts` devrait apparaître
+
+>	```java
+>	ls ~/.ssh
+>	id_rsa  id_rsa.pub  `known_hosts`
+>	```
 
 ### 3 - Connexion à la Raspberry Pi en utilisant la clé SSH
 Utiliser la commande `ssh pi@<IP-ADDRESS>` et `Enter` pour se connecter à la Raspberry.  
@@ -166,6 +193,20 @@ Une fois l'installation de Murmur est terminée, avant d'ouvrir au public, il fa
 - Sur le Terminal utiliser la commande `diskutil list` pour repérer le nom de la carte 
 - Utiliser la commande pour générer l'image `sudo dd if=/dev/rdisk2 of=/Users/chevalvert/Desktop/180328-murmur.img bs=1m`
 - Attendre jusqu'à ce que le process soit fini (lorsque le command prompt réapparaît sur le Terminal). Pour les cartes SD de 16 et 32 GB le process peut prendre du temps, utiliser la commande pour vérifier les bytes qui ont été transférés `ctrl + T`
+
+## 5 - Autorun app script
+In order to let de video projector beeing detected by the computer, we have to wait about 20 seconds before running Murmur app. 
+
+To run Murmur app automatically after those 20 seconds we have to create an script-application. 
+
+> ```java
+> delay 20
+> launch application "/Users/Jack/Desktop/180528-Murmur/murmur.app"
+> ```
+
+With Script Editor (Applications > Utilities) create a script with this content
+then export it as an application and configure it to login automatically when the computer boots.
+![script-app.png](script-autorun/script-app.png)
 
 
 
