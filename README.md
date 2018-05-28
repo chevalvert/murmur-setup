@@ -101,7 +101,7 @@ To run Murmur app automatically after those 20 seconds we have to create an scri
 > ```
 
 With Script Editor (Applications > Utilities) create a script with this content
-then export it as an application and configure it to login automatically when the computer boots.
+then export it as an application. Configure it to login automatically when the computer boots.
 ![script-app.png](script-autorun/script-app.png)
 
 
@@ -205,7 +205,7 @@ To run Murmur app automatically after those 20 seconds we have to create an scri
 > ```
 
 With Script Editor (Applications > Utilities) create a script with this content
-then export it as an application and configure it to login automatically when the computer boots.
+then export it as an application. Configure it to login automatically when the computer boots.
 ![script-app.png](script-autorun/script-app.png)
 
 
