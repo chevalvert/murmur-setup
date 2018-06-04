@@ -1,4 +1,28 @@
-
+- [Murmur - setup guide](#murmur---setup-guide)
+  * [1 - Write IMG file to microSDHC for Raspberry](#1---write-img-file-to-microsdhc-for-raspberry)
+  * [2 - Generate and install SSH key](#2---generate-and-install-ssh-key)
+    + [1 - Generate a new SSH key on your computer](#1---generate-a-new-ssh-key-on-your-computer)
+    + [2 - Copy your public key to your Raspberry Pi](#2---copy-your-public-key-to-your-raspberry-pi)
+    + [3 - Login into the Raspberry Pi using the SSH key](#3---login-into-the-raspberry-pi-using-the-ssh-key)
+  * [3 - Configuration of the IP adresses](#3---configuration-of-the-ip-adresses)
+    + [1 - On the computer](#1---on-the-computer)
+    + [2 - On the Raspberry](#2---on-the-raspberry)
+  * [3 - Run Murmur in installation mode](#3---run-murmur-in-installation-mode)
+  * [4 - SD card backup of the configuration installed in the exhibition venue](#4---sd-card-backup-of-the-configuration-installed-in-the-exhibition-venue)
+  * [5 - Autorun app script](#5---autorun-app-script)
+- [Murmur - guide d'installation (FR)](#murmur---guide-dinstallation-fr)
+  * [1 - Écrire l’image disque sur microSDHC pour Raspberry](#1---ecrire-limage-disque-sur-microsdhc-pour-raspberry)
+  * [2 - Création et installation des clés SSH](#2---creation-et-installation-des-cles-ssh)
+    + [1 - Générer une clé SSH sur l'ordinateur](#1---generer-une-cle-ssh-sur-lordinateur)
+    + [2 - Copier la clé publique SSH sur la Raspberry Pi](#2---copier-la-cle-publique-ssh-sur-la-raspberry-pi)
+    + [3 - Connexion à la Raspberry Pi en utilisant la clé SSH](#3---connexion-a-la-raspberry-pi-en-utilisant-la-cle-ssh)
+  * [3 - Configuration des adresses IP](#3---configuration-des-adresses-ip)
+    + [1 - Sur l'ordinateur](#1---sur-lordinateur)
+    + [2 - Sur la Raspberry](#2---sur-la-raspberry)
+  * [3 - Lancer Murmur en mode installation](#3---lancer-murmur-en-mode-installation)
+  * [4 - Créer une image SD de la configuration installée](#4---creer-une-image-sd-de-la-configuration-installee)
+  * [5 - Autorun app script](#5---autorun-app-script-1)
+  
 # Murmur - setup guide
 
 ## 1 - Write IMG file to microSDHC for Raspberry 
